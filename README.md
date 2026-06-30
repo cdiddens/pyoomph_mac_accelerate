@@ -1,8 +1,8 @@
 # pyoomph_mac_accelerate
 
-A pybind11 wrapper around **Apple's Accelerate "Sparse Solvers" framework**,
-exposing a `factorize` / `solve` / `resolve` workflow for real sparse
-matrices driven from `scipy.sparse` CSR matrices.
+**Note: The entire package was vibe-coded with Claude.ai**
+
+Required to use Apple's `Accelerate` linear solver `pyoomph`
 
 ## Important note on the algorithm
 
@@ -46,7 +46,17 @@ pip install -e .
 
 `setup.py` will refuse to build on non-macOS platforms with a clear error.
 
-## Usage
+## Usage within pyoomph (currently only in the development version)
+
+```python
+
+from pyoomph import *
+problem=Problem()
+problem.set_linear_solver("mac_accelerate")
+...
+```
+
+## Usage as standalone
 
 ```python
 import numpy as np
@@ -113,4 +123,4 @@ hand it raw CSR arrays directly.
 
 ## License
 
-MIT
+GPL v3.0
